@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} youtube-{{ video.title }} {% endblock %}
+{% block content %}
+<div class="content">
+    <div class="content play-content">
+        <div class="row">
+            <div class="play-video">
+                <video controls>
+                    <source src="{{ video.video.url }}" type="video/mp4">
+                    <source src="{{ video.video.url }}" type="video/ogg">
+                    Your browser does not support the video tag.
+                </video>
+                <!-- <video controls="controls"
+                       autoplay="autoplay"
+                       muted="muted"
+                       poster="{% static 'img/default/library.png' %}"
+                       preload="auto">
+                    <source src="{{ video.video.url }}" type="video/mp4" played> -->
+                </video>
+                <h3>{{ video.title }}</h3>
+                <span>
+                    <div class="ms-5">
+                    <button type="button" class="btn btn-secondary mt-1">Secondary</button>           
+                    <button type="button" class="btn btn-secondary mt-1">Secondary</button>              
+                    <button type="button" class="btn btn-secondary mt-1">Secondary</button>                
+                    <button type="button" class="btn btn-secondary mt-1">Secondary</button>
+                    </div>
+                </span>
+                <img src="{{ video.authors.avatar.url }}" alt="" style="border-radius: 50%;" width="40" height="40">
+                <span>{{ video.authors.first_name }} {{ video.authors.last_name }}</span>
+                <div style="margin-top: 40; background-color: rgb(206, 205, 205);">
+                    <p style="margin-top: 30px; color: rgb(33, 33, 33);">{{ video.descriptions }}</p>
+                </div>
+            </div>
+
+            <div class="right-sidebar">
+                {% for video in videos %}
+                <div class="side_video_list">
+                    <a href="{% url 'musiks:video-detail' video.pk %}" class="small-thumbnail">
+                        <video src="{{ video.video.url }}" width="150">video</video>
+                    </a>
+                    <div class="vid-info">
+                        <a>{{ video.title }}</a>
+                        <p>{{ video.authors.first_name }} {{ video.authors.last_name }}</p>
+                        <p>413k Views</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <!-- ----------comment section -------------------- -->
+        </div>
+    </div>
+</div>
+{% endblock %}

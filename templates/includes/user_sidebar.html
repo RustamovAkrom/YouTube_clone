@@ -1,0 +1,26 @@
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">
+            <img src="{{ request.user.avatar.url }}" alt="..." style="border-radius: 50%;" width="30%" height="30%">
+            <span><h4>{{ request.user.first_name }} {{ request.user.last_name }}</h4></span>
+            <p><small>{{ request.user.bio }}</small></p>
+            <hr>
+        </h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+    </div>
+    <div class="offcanvas-body">
+        {% if request.user.is_authenticated %}
+        <button class="btn  mt-5">Account</button>
+        <br>
+        <button class="btn  mt-5">Create canal</button>
+        <br>
+        <button class="btn  mt-5">Logout -></button>
+        <br>
+        {% else %}
+        <button class="btn  mt-5">lLogin</button>
+        <br>
+        <button class="btn  mt-5">Register</button>
+        <br>
+        {% endif %}
+    </div>
+</div>

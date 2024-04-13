@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} YouTube {% endblock %}
+{% block content %}
+<div class="content">
+    <!-- <div class="banner">
+        <img src="images/banner2.jpg" alt="">
+    </div> -->
+<!-- ------------------------ video------------------------ -->
+<div id="result">
+</div>
+    <div class="list_content">
+        {% for video in videos %}
+        <div class="vid_list">
+            <a href="{% url 'musiks:video-detail' video.pk %}">
+                <video class="thumbnail" preload="auto">
+                    <source src="{{ video.video.url }}">
+                </video>
+                <!-- <img src="{{ video.video.url }}" alt="" class="thumbnail"> -->
+            </a>                             
+            <div class="flex-div">
+                <img src="{{ video.authors.avatar.url }}" alt="">
+                <div class="vid-info">
+                    <a href="#">{{ video.title }}</a>
+                    <p>{{ video.authors.first_name }} {{ video.authors.last_name }}</p>
+                    <p>15k Views &bull; 2 days</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<script src="{% static 'Bootstrap/js/bootstrap.min.js' %}"></script>
+<!-- <script src="{% static 'js/script.js' %}"></script> -->
+{% endblock %}

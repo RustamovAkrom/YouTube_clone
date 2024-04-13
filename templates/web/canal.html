@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {{ request.user }} canal  {% endblock %}
+{% block content %}
+<div class="container">
+    <img src="{{ author.avatar.url }}" alt="..." style="border-radius: 50%;" height="50%">
+</div>
+
+{% endblock %}
