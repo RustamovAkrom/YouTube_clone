@@ -1,5 +1,7 @@
-.env/
+.env
+git/
 .idea/
 media/
 db.sqlite3
 main.py
+env/
